@@ -26,7 +26,7 @@ export default {
     <div class="container">
 
         <h2>Found 30 cards</h2>
-        <div id="cards-container">
+        <div class="cards-container">
 
             <CardItem
                 v-for="currentCard in store.cards"
@@ -47,6 +47,7 @@ export default {
 
 main {
   max-width: 1600px;
+
 
   margin: 0 auto;
   background-color: white;
@@ -70,6 +71,7 @@ main {
         flex-wrap: wrap;
         gap: 30px;
     }
+
   }
 
 }

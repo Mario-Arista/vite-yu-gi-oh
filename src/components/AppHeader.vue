@@ -28,7 +28,7 @@ header {
     margin-bottom: 50px;
     
     img {
-        width: 70px;
+        width: 120px;
         height: auto;
         padding: 0px 25px;
 
@@ -36,6 +36,9 @@ header {
     h1 {
         font-size: 2.8em;
         font-weight: 400;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
     }
 }
 </style>

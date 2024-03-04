@@ -45,15 +45,19 @@ export default {
 
 <style lang="scss">
 
+@use '../styles/variables' as *;
+
 main {
-  max-width: 1600px;
+  max-width: 1500px;
+
 
 
   margin: 0 auto;
   background-color: white;
 
   .container {
-    padding: 60px;
+    padding: 60px 60px 10px;
+
 
 
     background-color: transparent;
@@ -69,7 +73,7 @@ main {
     .cards-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: $cardsGap;
     }
 
   }

@@ -30,13 +30,15 @@ export default {
 
 <style lang="scss">
 
+@use '../styles/variables' as *;
+
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-between; 
 
-    width: calc(100% / 5 - 30px / 5 * 4);
-    background-color: #D48F38;
+    width: calc(100% / 5 - $cardsGap / 5 * 4);
+    background-color:$primary_color;
 
     img {
 
@@ -45,6 +47,7 @@ export default {
     }
 
     .name-card {
+        min-height: 76px;
         padding-bottom: 40px;
 
         text-transform: uppercase;
@@ -57,7 +60,7 @@ export default {
     }
     .type-card {
         padding-bottom: 20px;
-        font-size: 1em;
+        font-size: 1.2em;
 
         text-align: center;
 

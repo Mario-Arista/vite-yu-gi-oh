@@ -29,8 +29,8 @@ export default {
 <style lang="scss">
 
 main {
-  color: white;
-  background-color: red;
+  color: black;
+  background-color: white;
 }
 
 </style>

@@ -25,7 +25,7 @@ export default {
   <main>
     <div class="container">
 
-        <h2>Found 30 cards</h2>
+        <h2>Found {{ store.cards.data.length }} cards</h2>
         <div class="cards-container">
 
             <CardItem

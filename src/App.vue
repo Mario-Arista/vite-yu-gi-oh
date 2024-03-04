@@ -14,7 +14,6 @@ export default {
   data() {
     // Dati
     return {
-      cards: [],
       store
     };
   },

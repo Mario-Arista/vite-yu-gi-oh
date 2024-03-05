@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       store,
+
     };
   },
 
@@ -25,17 +26,21 @@ export default {
   <main>
     <div class="container">
 
-        <h2>Found {{ store.cards.data.length }} cards</h2>
-        <div class="cards-container">
-
-            <CardItem
-                v-for="currentCard in store.cards"
-                :SingleCard="currentCard"
-            
-            ></CardItem>
-
-        </div>
         
+      <h2>
+         {{'Found ' + store.cards.length + ' cards' }}
+      </h2>
+
+      <div 
+        class="cards-container"
+      >
+          
+        <CardItem
+          v-for="currentCard in store.cards"
+          :card="currentCard"
+        ></CardItem>
+
+      </div>
 
     </div>
     
@@ -50,15 +55,11 @@ export default {
 main {
   max-width: 1500px;
 
-
-
   margin: 0 auto;
   background-color: white;
 
   .container {
-    padding: 60px 60px 10px;
-
-
+    padding: 60px;
 
     background-color: transparent;
 
@@ -68,12 +69,17 @@ main {
 
         background-color: #212529;
         color: white;
+
+        &.hidden {
+          display: none;
+        }
     }
 
     .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $cardsGap;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $cardsGap;
+
     }
 
   }

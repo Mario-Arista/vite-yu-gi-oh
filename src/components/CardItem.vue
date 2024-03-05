@@ -4,7 +4,7 @@ export default {
   name: 'CardItem',
 
   props: {
-        SingleCard: Array,
+        card: Object,
     },
 }
 
@@ -12,18 +12,12 @@ export default {
 
 <template>
 
-  <div class="card"
-    v-for="currentcard in SingleCard"
-  
-  >
-    <!-- Prima verifico se la carta contiene dati validi prima di visualizzarla -->
-    <div v-if="currentcard && currentcard.card_images && currentcard.card_images.length > 0">
-        <div v-for="image in currentcard.card_images">
-            <img :src="image.image_url" :alt="currentcard.name">
-        </div>
-        <div class="name-card"> {{ currentcard.name }}</div>
-        <div class="type-card">{{ currentcard.archetype || 'Not Specified' }}</div>
-    </div>
+  <div class="card">
+
+    <img :src="card.card_images[0].image_url" :alt="card.name">
+    <div class="name-card"> {{ card.name }}</div>
+    <div class="type-card">{{ card.archetype || 'Not Specified' }}</div>
+    
   </div>
 
 </template>

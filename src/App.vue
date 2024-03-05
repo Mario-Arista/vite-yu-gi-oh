@@ -7,10 +7,11 @@ import { store } from './store.js';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppLoader from './components/AppLoader.vue';
+import SelectSearch from './components/SelectSearch.vue'
 
 export default {
   // Import
-  components: { AppLoader, AppHeader, AppMain },
+  components: { AppLoader, AppHeader, AppMain, SelectSearch },
 
   data() {
     // Dati
@@ -22,14 +23,25 @@ export default {
 
   // Created method
   created() {
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=120&offset=0')
+    
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then(res => {
         this.store.cards = res.data.data;
       })
       .catch(error => {
-        console.error('Errore durante il recupero delle carte:', error);
+      console.error('Errore durante il recupero delle carte:', error);
 
-      });
+    });
+
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+      .then(res => {
+        this.store.filteredCards = res.data;
+      })
+      .catch(error => {
+      console.error('Errore durante il recupero delle carte:', error);
+
+    });
+
   }
 }
 
@@ -40,6 +52,9 @@ export default {
 <AppLoader v-if="! store.cards.length > 0"></AppLoader>
 
 <AppHeader></AppHeader>
+
+<SelectSearch></SelectSearch>
+
 <AppMain></AppMain>
 
 

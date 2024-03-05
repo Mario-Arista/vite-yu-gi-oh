@@ -24,8 +24,7 @@ header {
     color: black;
     background-color: white;
 
-    // test
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     
     img {
         width: 120px;

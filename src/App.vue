@@ -21,9 +21,10 @@ export default {
     };
   },
 
-  // Created method
+ 
   created() {
-    
+
+    // Per chaimare API Iniziale
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
       .then(res => {
         this.store.cards = res.data.data;
@@ -33,6 +34,7 @@ export default {
 
     });
 
+    // Per chiamare API per popolare select
     axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
       .then(res => {
         this.store.filteredCards = res.data;
@@ -46,9 +48,10 @@ export default {
 
   methods: {
 
-    searchArchetype() {
+    // Metodo per cambiare cards nello store in base alla option selezionata 
+    searchArchetype(selectedArchetype) {
 
-      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&farchetype=${selectedArchetype}`)
+      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=${selectedArchetype}`)
         .then(res => {
           this.store.cards = res.data.data;
         })
@@ -56,7 +59,6 @@ export default {
           console.error('Errore durante il recupero delle carte:', error);
         });
     },
-
   },
 
 }
@@ -70,7 +72,7 @@ export default {
 <AppHeader></AppHeader>
 
 <SelectSearch
-  @search="searchArchetype()"
+  @search="searchArchetype"
 ></SelectSearch>
 
 <AppMain></AppMain>

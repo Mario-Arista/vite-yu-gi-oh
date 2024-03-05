@@ -13,8 +13,12 @@ export default {
   },
 
   methods: {
+    searchArchetype() {
+        // Evento 'search' con selectedArchetype come argomento/parametro
+      this.$emit('search', this.selectedArchetype);
+    },
+  },
 
-},
 
 };
 
@@ -23,11 +27,12 @@ export default {
 <template>
     <div class="container">
 
-        <select name="search-for-type" id="card-select"
-                @change="$emit('search')"
+            <!-- Con il v-model mi salvo l'archetype selezionato -->
+            <!-- Con il change mi chiamo il metodo -->
+        <select name="search-for-type()" id="card-select"
+                @change="searchArchetype"
+                v-model="selectedArchetype" 
         >
-
-            <option  value="">Select the type!</option>
             <option 
                 v-for="type in store.filteredCards"
                 :value="type.archetype_name"

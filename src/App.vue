@@ -42,7 +42,24 @@ export default {
 
     });
 
-  }
+  },
+
+  methods: {
+
+    searchArchetype() {
+
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&farchetype=${store.savedArchetype}')
+        .then(res => {
+
+          this.store.cards = res.data.data;
+
+        });
+
+      console.log("Ricerca percepita")
+    },
+
+  },
+
 }
 
 </script>
@@ -53,7 +70,9 @@ export default {
 
 <AppHeader></AppHeader>
 
-<SelectSearch></SelectSearch>
+<SelectSearch
+  @search="searchArchetype()"
+></SelectSearch>
 
 <AppMain></AppMain>
 

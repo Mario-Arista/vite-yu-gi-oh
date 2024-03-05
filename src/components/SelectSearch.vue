@@ -12,6 +12,16 @@ export default {
     };
   },
 
+  methods: {
+
+    saveValue(option) {
+
+        store.savedArchetype = option;
+
+    },
+
+},
+
 };
 
 </script>
@@ -19,12 +29,15 @@ export default {
 <template>
     <div class="container">
 
-        <select name="search-for-type" id="card-select">
+        <select name="search-for-type" id="card-select"
+                @change="$emit('search')"
+        >
 
             <option  value="">Select the type!</option>
             <option 
                 v-for="type in store.filteredCards"
                 :value="type.archetype_name"
+                @click="saveValue(type.archetype_name)"
             >
                 {{ type.archetype_name }}
             </option>

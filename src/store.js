@@ -6,6 +6,5 @@ export const store = reactive({
 
     filteredCards: [],
 
-    savedArchetype: '',
 
 });

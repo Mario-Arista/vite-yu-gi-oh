@@ -14,12 +14,6 @@ export default {
 
   methods: {
 
-    saveValue(option) {
-
-        store.savedArchetype = option;
-
-    },
-
 },
 
 };
@@ -37,7 +31,6 @@ export default {
             <option 
                 v-for="type in store.filteredCards"
                 :value="type.archetype_name"
-                @click="saveValue(type.archetype_name)"
             >
                 {{ type.archetype_name }}
             </option>
@@ -51,7 +44,7 @@ export default {
 
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @use '../styles/variables' as *;
 

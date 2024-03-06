@@ -28,7 +28,7 @@ export default {
 
         
       <h2>
-         {{'Found ' + store.cards.length + ' cards' }}
+         {{'Showed ' + store.cards.length + ' cards' }}
       </h2>
 
       <div 

@@ -6,7 +6,9 @@ export const store = reactive({
 
     filteredCards: [],
 
-    selectedArchetype: '',
+    filterArchetype: "",
+
+    numberOfCards: null,
 
 
 });

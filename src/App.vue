@@ -49,11 +49,12 @@ export default {
   methods: {
 
     // Metodo per cambiare cards nello store in base alla option selezionata 
-    searchArchetype(selectedArchetype) {
+    searchArchetype() {
 
-      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=${selectedArchetype}`)
+      axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype=` + this.store.filterArchetype)
         .then(res => {
           this.store.cards = res.data.data;
+          this.store.numberOfCards = res.data.meta.total_rows;
         })
         .catch(error => {
           console.error('Errore durante il recupero delle carte:', error);
@@ -71,9 +72,7 @@ export default {
 
 <AppHeader></AppHeader>
 
-<SelectSearch
-  @search="searchArchetype"
-></SelectSearch>
+<SelectSearch @search="searchArchetype()" ></SelectSearch>
 
 <AppMain></AppMain>
 
